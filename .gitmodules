@@ -1,0 +1,3 @@
+[submodule "kubernetes-kafka"]
+	path = kubernetes-kafka
+	url = https://github.com/baek-jinoo/kubernetes-kafka.git
