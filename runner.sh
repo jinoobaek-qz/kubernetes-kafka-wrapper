@@ -10,45 +10,6 @@ NETWORK_NAME=${NETWORK_NAME:-jin-experiment}
 gcloud config set project "$PROJECT_ID"
 gcloud config set compute/zone "$ZONE_ID"
 
-#gcloud beta container --project "${PROJECT_ID}" \
-#  clusters create "$CLUSTER_NAME" \
-#  --zone "${ZONE_ID}" \
-#  --no-enable-basic-auth \
-#  --cluster-version "${CLUSTER_VERSION}" \
-#  --machine-type "n1-standard-2" \
-#  --image-type "COS" \
-#  --issue-client-certificate \
-#  --disk-type "pd-standard" \
-#  --disk-size "100" \
-#  --metadata disable-legacy-endpoints=true \
-#  --num-nodes "3" \
-#  --enable-cloud-logging \
-#  --enable-cloud-monitoring \
-#  --no-enable-ip-alias \
-#  --network "projects/${PROJECT_ID}/global/networks/${NETWORK_NAME}" \
-#  --subnetwork "projects/${PROJECT_ID}/regions/${REGION_ID}/subnetworks/${NETWORK_NAME}" \
-#  --enable-autoscaling \
-#  --min-nodes "3" \
-#  --max-nodes "5" \
-#  --addons HorizontalPodAutoscaling,HttpLoadBalancing \
-#  --enable-autoupgrade \
-#  --enable-autorepair
-#
-#gcloud container node-pools create pool-2 \
-#  --cluster $CLUSTER_NAME \
-#  --zone "${ZONE_ID}" \
-#  --machine-type "n1-standard-4" \
-#  --image-type "COS" \
-#  --disk-type "pd-standard" \
-#  --disk-size "100" \
-#  --metadata disable-legacy-endpoints=true \
-#  --num-nodes "3" \
-#  --enable-autoscaling \
-#  --min-nodes "3" \
-#  --max-nodes "6" \
-#  --enable-autoupgrade \
-#  --enable-autorepair
-
 gcloud beta container --project "quizlet-data-services" \
   clusters create ${CLUSTER_NAME} \
   --region ${REGION_ID} \
@@ -93,5 +54,4 @@ gcloud beta container --project "quizlet-data-services" \
 
 
 gcloud container clusters get-credentials ${CLUSTER_NAME} --project ${PROJECT_ID} --region ${REGION_ID}
-#gcloud container clusters get-credentials ${CLUSTER_NAME} --zone ${ZONE_ID} --project ${PROJECT_ID}
 
