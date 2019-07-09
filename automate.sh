@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -o
+set -e
 
 ./runner.sh
 ./kafka_setup.sh

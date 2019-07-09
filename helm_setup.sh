@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -o
+set -e
 
 kubectl apply -f - <<EOF
 apiVersion: v1
