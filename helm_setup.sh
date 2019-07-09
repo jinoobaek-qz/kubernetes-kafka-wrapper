@@ -55,8 +55,9 @@ helm init --tiller-tls \
 --tiller-tls-key ${KEY_FILE} \
 --tiller-tls-verify \
 --tls-ca-cert ${CA_CERT_FILE} \
---service-account=tiller \
---wait
+--service-account=tiller
+
+kubectl rollout status -w deployment/tiller-deploy --namespace=kube-system;
 
 helm ls --tls
 echo "done with helm setup"
