@@ -16,7 +16,7 @@ then
   MIN_NODES_PER_POOL=1
   MAX_NODES_PER_POOL=3
   START_NUM_NODES_PER_POOL=1
-  MAIN_POOL_MACHINE_TYPE="n1-standard-4"
+  MAIN_POOL_MACHINE_TYPE="n1-standard-2"
   POOL_1_MACHINE_TYPE="n1-standard-4"
   NETWORK="projects/quizlet-data-services/global/networks/jin-experiment"
   SUBNETWORK="projects/quizlet-data-services/regions/${REGION_ID}/subnetworks/jin-experiment"
@@ -26,7 +26,7 @@ else
   MAX_NODES_PER_POOL=15
   STANDARD_DISK_SIZE=400
   SSD_DISK_SIZE=400
-  MAIN_POOL_MACHINE_TYPE="n1-standard-4"
+  MAIN_POOL_MACHINE_TYPE="n1-standard-2"
   POOL_1_MACHINE_TYPE="n1-standard-4"
   NETWORK="projects/quizlet-data-services/global/networks/k8s-default"
   SUBNETWORK="projects/quizlet-data-services/regions/${REGION_ID}/subnetworks/k8s-default"
