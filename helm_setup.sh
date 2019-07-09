@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -o
-set -x
 
 kubectl apply -f - <<EOF
 apiVersion: v1
@@ -23,17 +22,41 @@ subjects:
     namespace: kube-system
 EOF
 
+command -v helm || echo "Please install helm"; exit;
+
+CERT_FILE="$(helm home)/tiller.cert.pem"
+KEY_FILE="$(helm home)/tiller.key.pem"
+CA_CERT_FILE="$(helm home)/ca.pem"
+
+if [ -f "$CERT_FILE" ]; then
+    echo "$CERT_FILE exist"
+else
+    echo "$CERT_FILE does not exist"
+    exit;
+fi
+
+if [ -f "$KEY_FILE" ]; then
+    echo "$KEY_FILE exist"
+else
+    echo "$KEY_FILE does not exist"
+    exit;
+fi
+
+if [ -f "$CA_CERT_FILE" ]; then
+    echo "$CA_CERT_FILE exist"
+else
+    echo "$CA_CERT_FILE does not exist"
+    exit;
+fi
+
 helm init --tiller-tls \
 --override 'spec.template.spec.containers[0].command'='{/tiller,--storage=secret}' \
- --tiller-tls-cert $(helm home)/tiller.cert.pem \
---tiller-tls-key $(helm home)/tiller.key.pem \
+--tiller-tls-cert ${CERT_FILE} \
+--tiller-tls-key ${KEY_FILE} \
 --tiller-tls-verify \
---tls-ca-cert $(helm home)/ca.pem \
+--tls-ca-cert ${CA_CERT_FILE} \
 --service-account=tiller
 
-#helm ls --tls --tls-ca-cert ca.cert.pem --tls-cert helm.cert.pem --tls-key helm.key.pem
+kubectl rollout status -w deployment/tiller-deploy --namespace=kube-system;
 
-#cp ca.cert.pem $(helm home)/ca.pem
-#cp helm.cert.pem $(helm home)/cert.pem
-#cp helm.key.pem $(helm home)/key.pem
 helm ls --tls

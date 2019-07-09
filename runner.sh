@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 set -o
-set -x
 
 PROJECT_ID=${PROJECT_ID:-quizlet-data-services}
 ZONE_ID=${ZONE_ID:-us-central1-c}
@@ -17,8 +16,8 @@ then
   MIN_NODES_PER_POOL=1
   MAX_NODES_PER_POOL=3
   START_NUM_NODES_PER_POOL=1
-  MAIN_POOL_MACHINE_TYPE="n1-standard-2"
-  POOL_1_MACHINE_TYPE="n1-standard-2"
+  MAIN_POOL_MACHINE_TYPE="n1-standard-4"
+  POOL_1_MACHINE_TYPE="n1-standard-4"
   NETWORK="projects/quizlet-data-services/global/networks/jin-experiment"
   SUBNETWORK="projects/quizlet-data-services/regions/${REGION_ID}/subnetworks/jin-experiment"
 else

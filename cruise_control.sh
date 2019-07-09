@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-set -v
 set -o
 
 kubectl --namespace kafka apply -k ./kubernetes-kafka/cruise-control/
