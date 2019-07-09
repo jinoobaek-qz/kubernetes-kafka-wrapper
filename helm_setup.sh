@@ -60,3 +60,4 @@ helm init --tiller-tls \
 kubectl rollout status -w deployment/tiller-deploy --namespace=kube-system;
 
 helm ls --tls
+echo "done with helm setup"
