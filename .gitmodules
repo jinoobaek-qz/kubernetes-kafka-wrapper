@@ -4,3 +4,6 @@
 [submodule "cp-helm-charts"]
 	path = cp-helm-charts
 	url = git@github.com:baek-jinoo/cp-helm-charts.git
+[submodule "dockerfiles"]
+	path = dockerfiles
+	url = git@github.com:baek-jinoo/dockerfiles.git
