@@ -58,7 +58,5 @@ helm init --tiller-tls \
 --service-account=tiller \
 --wait
 
-kubectl rollout status -w deployment/tiller-deploy --namespace=kube-system;
-
 helm ls --tls
 echo "done with helm setup"
