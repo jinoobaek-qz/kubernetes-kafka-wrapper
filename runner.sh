@@ -31,8 +31,6 @@ gcloud beta container --project "quizlet-data-services" \
   --enable-cloud-logging \
   --enable-cloud-monitoring \
   --no-enable-ip-alias \
-  --network "projects/quizlet-data-services/global/networks/default" \
-  --subnetwork "projects/quizlet-data-services/regions/us-central1/subnetworks/default" \
   --enable-autoscaling \
   --min-nodes "1" \
   --max-nodes "3" \
@@ -47,7 +45,7 @@ gcloud beta container --project "quizlet-data-services" \
   --node-version "1.12.8-gke.10" \
   --machine-type "n1-standard-2" \
   --image-type "COS" \
-  --disk-type "pd-standard" \
+  --disk-type "pd-ssd" \
   --disk-size "30" \
   --enable-autoscaling \
   --min-nodes "1" \

@@ -6,4 +6,4 @@ set -x
 ./kafka_setup.sh
 ./prometheus.sh
 ./cruise_control.sh
-#./helm_setup.sh
+./helm_setup.sh
