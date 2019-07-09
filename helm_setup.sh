@@ -22,7 +22,7 @@ subjects:
     namespace: kube-system
 EOF
 
-command -v helm || echo "Please install helm"; exit;
+command -v helm || $(echo "Please install helm"; exit)
 
 CERT_FILE="$(helm home)/tiller.cert.pem"
 KEY_FILE="$(helm home)/tiller.key.pem"
