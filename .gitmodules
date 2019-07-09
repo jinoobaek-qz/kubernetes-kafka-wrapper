@@ -1,3 +1,6 @@
 [submodule "kubernetes-kafka"]
 	path = kubernetes-kafka
 	url = https://github.com/baek-jinoo/kubernetes-kafka.git
+[submodule "cp-helm-charts"]
+	path = cp-helm-charts
+	url = git@github.com:baek-jinoo/cp-helm-charts.git
