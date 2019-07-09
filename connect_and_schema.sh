@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
 rm cp-helm-charts-0.1.1.tgz || true
 helm package cp-helm-charts/

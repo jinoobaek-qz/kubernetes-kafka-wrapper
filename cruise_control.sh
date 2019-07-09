@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
 kubectl --namespace kafka apply -k ./kubernetes-kafka/cruise-control/
 kubectl --namespace kafka patch statefulset kafka --patch "$(cat kubernetes-kafka/cruise-control/20kafka-broker-reporter-patch.yml)"

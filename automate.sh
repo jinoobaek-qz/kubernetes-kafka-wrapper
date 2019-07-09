@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
-./runner.sh
+./cluster_setup.sh
 ./kafka_setup.sh
 ./prometheus.sh
 ./cruise_control.sh

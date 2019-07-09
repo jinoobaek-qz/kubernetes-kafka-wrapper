@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-set -e
+set -ex
 
 kubectl apply -f - <<EOF
 apiVersion: v1
@@ -55,7 +55,8 @@ helm init --tiller-tls \
 --tiller-tls-key ${KEY_FILE} \
 --tiller-tls-verify \
 --tls-ca-cert ${CA_CERT_FILE} \
---service-account=tiller
+--service-account=tiller \
+--wait
 
 kubectl rollout status -w deployment/tiller-deploy --namespace=kube-system;
 
